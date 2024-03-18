@@ -35,13 +35,8 @@ public class MainApp {
       userService.add(user4);
 
       List<User> users = userService.listUsers();
-      for (User user : users) {
-         System.out.println("Id = "+user.getId());
-         System.out.println("First Name = "+user.getFirstName());
-         System.out.println("Last Name = "+user.getLastName());
-         System.out.println("Email = "+user.getEmail());
-         System.out.println(user.getCar());
-      }
+      users.forEach(u -> System.out.printf(" Id = %s \n First Name = %s \n Last Name = %s \n Email = %s \n %s \n",
+              u.getId(), u.getFirstName(), u.getLastName(), u.getEmail(), u.getCar()));
 
       List<User> usersWithCars = userService.getUserWithCar("BMW", 3);
       usersWithCars.forEach(u -> System.out.println(u.getFirstName()));
